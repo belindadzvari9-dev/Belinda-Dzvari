@@ -1,0 +1,21 @@
+#1. The difference between GET and POST requests
+#A GET request retrieves information from a server. For example, it can request a list of products from an API. Data is usually sent in the URL.
+#A POST request sends new data to a server. For example, it can create a new user account or submit a form. Data is sent in the request body, making it more suitable for sending larger or private information.
+
+import  requests
+
+# Data we want to send to the API
+data = {
+    "name": "Jane Smith",
+    "email": "jane@example.com"
+}
+
+#Send a POST request
+response = requests.post(
+    "https://jsonplaceholder.typicode.com/posts",
+    json=data
+)
+
+# Display the response from the API
+print(response.status_code)
+print(response.json())
